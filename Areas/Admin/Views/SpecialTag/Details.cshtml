@@ -1,0 +1,27 @@
+﻿@model OnlineShop.Models.SpecialTag
+@{
+    ViewData["Title"] = "Edit";
+}
+<br />
+
+<h2 class="text-info">Edit Special Tag</h2>
+
+    <div class="p-4 rounded border">
+
+        <div class="card-group row">
+            <div class="col-2">
+                <label asp-for="Name" class="control-lable"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Name" readonly="readonly" class="form-control" />
+            </div>
+            <div class="card-group">
+                <a asp-action="Index" class="btn btn-success m-1">Back To List</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary m-1">Edit</a>
+            </div>
+        </div>
+
+    </div>
+
+
+

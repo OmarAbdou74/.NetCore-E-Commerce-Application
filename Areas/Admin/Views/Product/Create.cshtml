@@ -1,0 +1,108 @@
+﻿@model OnlineShop.Models.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+
+<h2 class="text-info">Add New product </h2>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h3>@ViewBag.message</h3>
+
+    <div class="row">
+ 
+        <div class="p-4 rounded border p-3">
+            <div class="card-group form-group">
+                
+            </div>
+            <div class="card-group row">             
+                <div class="col-2">
+                    <label asp-for="Name" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <span asp-validation-for="Name"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="Price" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Price" class="form-control" />
+                </div>
+                <span asp-validation-for="Price"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="Image" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Image" class="form-control" type="file" />
+                </div>
+                <span asp-validation-for="Image"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="ProductColor" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="ProductColor" class="form-control" />
+                </div>
+                <span asp-validation-for="ProductColor"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="ProductTypeId" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                   @* <input asp-for="ProductTypeId" class="form-control" />*@
+                    <select asp-for="ProductTypeId" asp-items="@ViewBag.ProductTypeId" class="form-select"></select>
+                </div>
+                <span asp-validation-for="Id"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="SpecialTagId" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                   @* <input asp-for="SpecialTagId" class="form-control" />*@
+                    <select asp-for="SpecialTagId" asp-items="@ViewBag.SpecialTagId" class="form-select"></select>
+                </div>
+                <span asp-validation-for="SpecialTagId"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-2">
+                    <label asp-for="IsAvailable" class="control-lable"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="IsAvailable" type="checkbox" />
+                </div>
+                <span asp-validation-for="IsAvailable"></span>
+            </div>
+
+            <div class="card-group row">
+                <div class="col-5">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-success">Back To List</a>
+                </div>
+                
+               
+            </div>
+
+        </div>
+    </div>
+        
+</form>
+    
+    
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,33 @@
+﻿@model OnlineShop.Models.ProductTypes
+@{
+	ViewData["Title"] = "Details";
+}
+<br />
+<h2 class="text-info">Prodect Type Details</h2>
+<form asp-action="Details" method="post">
+	<div class="p-4 rounded border">
+		<div asp-validation-summary="ModelOnly">
+		</div>
+		<div class="card-group row">
+			<div class="col-2">
+				<label asp-for="ProductType"></label>
+			</div>
+			<div class="clo-5">
+				<input asp-for="ProductType" readonly="readonly" class="form-control" />
+			</div>
+			<span asp-validation-for="ProductType" class="text-danger"></span>
+		</div>
+		<div class="card-group">
+			<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary m-1">Edit</a>
+			@{/*you can make the bake to list button using anchor instead of submit button */}
+			<input type="submit" class="btn btn-success m-1" value="Back to List" />
+		</div>
+	</div>
+
+</form>
+@section Scripts
+	{
+	@{
+		await Html.RenderPartialAsync(partialViewName: "_ValidationScriptsPartial.cshtml");
+	}
+	}
